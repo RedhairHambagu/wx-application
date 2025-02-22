@@ -1,0 +1,5 @@
+<view class="image-list" wx:if="{{images.length > 0}}">
+  <block wx:for="{{images}}" wx:key="index">
+    <image class="image-item" src="{{item}}" mode="aspectFill" catch:tap="previewImage" data-src="{{item}}" data-index="{{index}}"></image>
+  </block>
+</view>

@@ -1,0 +1,105 @@
+.profile-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20rpx;
+  background-color: #f5f5f5;
+}
+
+/* 用户信息 */
+.user-info {
+  position:fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20rpx;
+  background: #ffffff;
+  width: 90%;
+  border-radius: 12rpx;
+  box-shadow: 0 4rpx 8rpx rgba(0, 0, 0, 0.1);
+  margin-bottom: 20rpx;
+}
+
+.user-avatar {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  margin-bottom: 10rpx;
+}
+
+.user-name {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333;
+}
+
+.user-email {
+  font-size: 26rpx;
+  color: #888;
+}
+
+/* 帖子展示 */
+.user-posts {
+  margin-top: 120px;
+  width: 90%;
+}
+
+.post-card {
+  margin-top: 20px;
+  background-color: #fff;
+  padding: 20rpx;
+  border-radius: 12rpx;
+  box-shadow: 0 4rpx 8rpx rgba(0, 0, 0, 0.05);
+  margin-bottom: 15rpx;
+}
+
+/* 帖子头部 */
+.post-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10rpx;
+  margin-bottom: 10rpx;
+}
+
+.post-title {
+  font-size: 30rpx;
+  font-weight: bold;
+  color: #222;
+}
+
+.post-date {
+  font-size: 24rpx;
+  color: #888;
+}
+
+/* 帖子内容 */
+.post-content {
+  font-size: 28rpx;
+  color: #444;
+  line-height: 1.6;
+  margin-bottom: 10rpx;
+}
+
+/* 图片列表 */
+.post-images {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10rpx;
+  margin-top: 15rpx;
+}
+
+.post-img {
+  width: 45%;
+  height: 200rpx;
+  border-radius: 8rpx;
+  object-fit: cover;
+}
+
+.no-posts {
+  text-align: center;
+  color: #999;
+  padding: 20px;
+  font-size: 14px;
+}

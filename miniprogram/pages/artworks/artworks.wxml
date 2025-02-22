@@ -1,0 +1,52 @@
+<view class="container">
+  <view class="header">
+    <text class="title">作品集</text>
+    <text class="subtitle">近期精选</text>
+  </view>
+
+  <scroll-view scroll-x class="nav-scroll" enhanced show-scrollbar="{{false}}">
+    <view class="nav-items">
+      <view class="nav-item {{currentType === 'all' ? 'active' : ''}}" 
+            bindtap="switchType" data-type="all">全部</view>
+      <view class="nav-item {{currentType === 'photo' ? 'active' : ''}}" 
+            bindtap="switchType" data-type="photo">照片</view>
+      <view class="nav-item {{currentType === 'music' ? 'active' : ''}}" 
+            bindtap="switchType" data-type="music">音乐</view>
+      <view class="nav-item {{currentType === 'video' ? 'active' : ''}}" 
+            bindtap="switchType" data-type="video">视频</view>
+    </view>
+  </scroll-view>
+
+  <view class="artwork-list">
+    <block wx:for="{{filteredArtworks}}" wx:key="_id">
+      <view class="artwork-item" bindtap="goToArtworkDetail" 
+            data-id="{{item._id}}" animation="{{item.animation}}">
+        <image class="cover" src="{{item.coverUrl}}" mode="aspectFill" lazy-load></image>
+        <view class="info">
+          <view class="title-row">
+            <text class="title">{{item.title}}</text>
+            <view class="type-icon">
+              <image class="type-img" src="cloud://yanmo-3g8s1hmd1faa3280.7961-yanmo-3g8s1hmd1faa3280-1342521606/images/{{item.type}}.png"></image>
+            </view>
+          </view>
+          <text class="description">{{item.description}}</text>
+        </view>
+      </view>
+    </block>
+  </view>
+
+  <view wx:if="{{filteredArtworks.length === 0}}" class="empty-state">
+    <text>暂无相关作品</text>
+  </view>
+  <!-- 在artwork-list后添加 -->
+    <view class="loading-tip" wx:if="{{isLoading}}">
+      <text>加载中...</text>
+    </view>
+    <view class="no-more-tip" wx:if="{{!hasMore && filteredArtworks.length > 0}}">
+      <text>没有更多了</text>
+    </view>
+</view>
+
+<view class="home1-button" bindtap="goHome">
+  <image src="cloud://yanmo-3g8s1hmd1faa3280.7961-yanmo-3g8s1hmd1faa3280-1342521606/images/home1.png" class="home-icon"></image>
+</view>

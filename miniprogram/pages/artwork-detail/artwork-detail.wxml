@@ -1,0 +1,48 @@
+<view class="container">
+  <!-- 作品封面（可预览）-->
+  <view class="cover-container" bindtap="previewImage" data-src="{{artwork.coverUrl}}">
+    <image class="artwork-cover" src="{{artwork.coverUrl}}" mode="widthFix"></image>
+  </view>
+
+  <!-- 作品标题 -->
+  <view class="artwork-title">{{artwork.title}}</view>
+
+  <!-- 作品描述 -->
+  <view class="artwork-description">{{artwork.description}}</view>
+
+  <!-- 如果是 photo 类型，展示多张图片 -->
+  <view class="photo-gallery" wx:if="{{artwork.type === 'photo'}}">
+    <block wx:for="{{artwork.mediaUrls}}" wx:key="index">
+      <image class="photo-item" src="{{item}}" mode="aspectFill"
+             bindtap="previewImage" data-src="{{item}}" data-list="{{artwork.mediaUrls}}"></image>
+    </block>
+  </view>
+
+  <!-- 音乐播放器 -->
+  <view class="media-container" wx:if="{{artwork.type === 'music' && artwork.mediaUrl}}">
+    <view class="music-player">
+      <view class="music-controls">
+        <image class="control-icon" 
+               src="{{isPlaying ? 'cloud://yanmo-3g8s1hmd1faa3280.7961-yanmo-3g8s1hmd1faa3280-1342521606/images/pause.png' : 'cloud://yanmo-3g8s1hmd1faa3280.7961-yanmo-3g8s1hmd1faa3280-1342521606/images/play.png'}}" 
+               bindtap="togglePlay"></image>
+        <slider class="music-slider" 
+                min="0" 
+                max="{{duration}}" 
+                value="{{currentTime}}"
+                bindchange="seekAudio"
+                block-size="12"></slider>
+      </view>
+      <view class="music-time">{{formattedCurrentTime}} / {{formattedDuration}}</view>
+    </view>
+  </view>
+
+  <!-- 视频播放器 -->
+  <view class="media-container" wx:if="{{artwork.type === 'video' && artwork.mediaUrl}}">
+    <video class="video-player" src="{{artwork.mediaUrl}}" controls></video>
+  </view>
+
+  <!-- 返回首页按钮 -->
+  <view class="home1-button" bindtap="goHome">
+  <image src="cloud://yanmo-3g8s1hmd1faa3280.7961-yanmo-3g8s1hmd1faa3280-1342521606/images/home1.png" class="home-icon"></image>
+</view>
+</view>

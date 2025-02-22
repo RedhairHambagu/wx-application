@@ -1,0 +1,206 @@
+view, text {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  padding-bottom: 100px; /* 预留空间防止底部导航遮挡 */
+}
+
+/* 背景海报 */
+.background-image {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.8);
+  z-index: -1;
+}
+
+/* 演出预告 */
+.event-preview {
+  margin-top: 30px;
+  padding: 15px;
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
+}
+
+.event-swiper {
+  width: 100%;
+  height: 220px;
+}
+
+.event-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* 演出信息 */
+.event-info {
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.534);
+  border-radius: 12px;
+  margin-top: -20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.event-preview-text {
+  font-size: 22px;
+  font-weight: bold;
+  color: #2E3A2E;
+}
+
+/* 替换按钮为超链接 */
+.event-link {
+  display: inline-block;
+  margin-top: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #4A6F4A;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* 作品集 */
+.artworks {
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.534);
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+}
+
+/* 标题 & 查看更多 */
+.artworks-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.section-title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #2E3A2E;
+}
+
+.view-more {
+  font-size: 16px;
+  font-weight: bold;
+  color: #4A6F4A;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* 作品列表 */
+.artwork-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.artwork-item {
+  flex: 1 1 calc(50% - 10px);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.artwork-item:hover {
+  transform: scale(1.05);
+}
+
+.artwork-cover {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.artwork-info {
+  flex: 1; /* 让这个区域自动填充剩余空间 */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 12px;
+  background: #E6EFE6;
+  min-height: 80px;
+  height: 100%; /* 关键：确保背景填满 */
+}
+
+.artwork-title {
+  font-size: 18px;
+  font-weight: bold;
+  color: #2E3A2E;
+}
+
+.artwork-description {
+  font-size: 14px;
+  color: #5A6B5A;
+  flex-grow: 1;
+}
+
+/* 底部导航 */
+.bottom-nav {
+  position: fixed;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 90%;
+  max-width: 400px;
+  padding: 12px 20px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px);
+  border-radius: 50px;
+  box-shadow: 0 8px 20px rgba(255, 255, 255, 0.2);
+}
+
+/* 每个导航项 */
+.nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 14px;
+  font-weight: 500;
+  transition: transform 0.2s ease, opacity 0.3s;
+}
+
+.nav-item:hover {
+  transform: translateY(-5px);
+  opacity: 1;
+}
+
+/* 导航图标 */
+.nav-icon, .home-icon {
+  width: 30px;
+  height: 30px;
+  filter: drop-shadow(0 2px 6px rgba(255, 255, 255, 0.3));
+  transition: transform 0.3s ease;
+}
+
+.nav-item:hover .nav-icon,
+.nav-item:hover .home-icon {
+  transform: scale(1.1);
+}
+
+/* 主页按钮稍大 */
+.home-icon {
+  width: 60px;
+  height: 60px;
+}

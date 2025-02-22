@@ -1,0 +1,55 @@
+<view class="container">
+  <!-- 背景海报 -->
+  <image class="background-image" src="{{artistPoster}}" mode="aspectFill"></image>
+
+  <!-- 演出预告 -->
+  <view class="event-preview">
+    <swiper class="event-swiper" indicator-dots="true" autoplay="true" interval="3000" circular="true">
+      <block wx:for="{{eventImages}}" wx:key="index">
+        <swiper-item>
+          <image class="event-image" src="{{item}}" mode="aspectFill" bindtap="previewImage" data-src="{{item}}"></image>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+
+  <!-- 演出信息 -->
+  <view class="event-info">
+    <text class="event-preview-text">{{eventPreview}}</text>
+    <text class="event-link" bindtap="goToEventPage">查看活动详情</text>
+  </view>
+
+  <!-- 作品集展示 -->
+  <view class="artworks">
+    <view class="artworks-header">
+      <text class="section-title">作品集</text>
+      <text class="view-more" bindtap="goToArtworkPage">查看更多</text>
+    </view>
+    <view class="artwork-list">
+      <block wx:for="{{artworks}}" wx:key="index">
+        <view class="artwork-item" bindtap="goToArtworkDetail" data-id="{{item._id}}">
+          <image class="artwork-cover" src="{{item.coverUrl}}" mode="aspectFill"></image>
+          <view class="artwork-info">
+            <text class="artwork-title">{{item.title}}</text>
+            <text class="artwork-description">{{item.description}}</text>
+          </view>
+        </view>
+      </block>
+    </view>
+  </view>
+
+  <!-- 底部导航 -->
+  <view class="bottom-nav">
+    <view class="nav-item" bindtap="goToPostsPage">
+      <image src="cloud://yanmo-3g8s1hmd1faa3280.7961-yanmo-3g8s1hmd1faa3280-1342521606/images/post.png" class="nav-icon"></image>
+      <text>羊友圈</text>
+    </view>
+    <view class="nav-item center" bindtap="goToRoomPage">
+      <image src="cloud://yanmo-3g8s1hmd1faa3280.7961-yanmo-3g8s1hmd1faa3280-1342521606/images/home.png" class="home-icon"></image>
+    </view>
+    <view class="nav-item" bindtap="goToProfilePage">
+      <image src="cloud://yanmo-3g8s1hmd1faa3280.7961-yanmo-3g8s1hmd1faa3280-1342521606/images/profile.png" class="nav-icon"></image>
+      <text>个人主页</text>
+    </view>
+  </view>
+</view>

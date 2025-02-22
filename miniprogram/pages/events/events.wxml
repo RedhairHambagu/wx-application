@@ -1,0 +1,34 @@
+<view class="container">
+  <!-- 顶部标题 -->
+  <view class="header">
+    <text class="title">📅 活动日程表</text>
+  </view>
+
+  <!-- 遍历月份 -->
+  <block wx:for="{{sortedKeys}}" wx:key="month">
+    <view class="month-section">
+      <!-- 月份标题 -->
+      <view class="month-title">
+        <view class="month-icon">★</view>
+        <text>{{events[item].year}}年{{events[item].month}}月</text>
+      </view>
+
+      <!-- 遍历活动 -->
+      <block wx:for="{{events[item].items}}" wx:key="index">
+        <view class="event-item" bindtap="goToEventsDetail" data-id="{{item._id}}">
+          <!-- 时间线圆点 -->
+          <view class="event-dot"></view>
+          <!-- 活动时间 -->
+          <text class="event-time">{{item.date}} {{item.time}}</text>
+          <!-- 活动名称 -->
+          <text class="event-title">{{item.title}}</text>
+          <!-- NEW 标签 -->
+          <view class="new-tag" wx:if="{{item.isNew}}">NEW</view>
+        </view>
+      </block>
+    </view>
+  </block>
+</view>
+<view class="home1-button" bindtap="goHome">
+    <image src="cloud://yanmo-3g8s1hmd1faa3280.7961-yanmo-3g8s1hmd1faa3280-1342521606/images/home1.png" class="home-icon"></image>
+</view>

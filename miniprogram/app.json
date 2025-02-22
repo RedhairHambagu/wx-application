@@ -1,0 +1,27 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/events/events",
+    "pages/profile/profile",
+    "pages/posts/posts",
+    "pages/artwork-detail/artwork-detail",
+    "pages/post-detail/post-detail",
+    "pages/user-profile/user-profile",
+    "pages/event-detail/event-detail",
+    "pages/artworks/artworks",
+    "pages/create-post/create-post",
+    "pages/rooms/rooms",
+    "pages/room-detail/room-detail"
+  ],
+  "window": {
+    "navigationBarTitleText": "许杨玉琢",
+    "navigationBarBackgroundColor": "#6D8B74",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#F4F4F2",
+    "backgroundTextStyle": "dark"
+  },
+  "globalStyle": {
+    "navigationStyle": "custom"
+  },
+  "usingComponents": {}
+}

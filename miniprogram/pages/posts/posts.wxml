@@ -1,0 +1,39 @@
+<view class="posts-container">
+  <block wx:for="{{posts}}" wx:key="_id">
+    <view class="post-card" bindtap="goToPostDetail" data-id="{{item._id}}">
+      <!-- 用户信息 -->
+      <view class="post-header">
+        <image class="avatar" src="{{item.user.avatarUrl}}" mode="aspectFill" 
+       catch:tap="goToUserProfile" data-userid="{{item.userId}}"></image>
+
+        <view class="post-user">
+          <text class="username">{{item.user.username}}</text>
+          <text class="post-date">{{item.date}}</text>
+        </view>
+      </view>
+
+      <!-- 帖子内容 -->
+      <view class="post-content">
+        <text class="post-title">{{item.title}}</text>
+        <text class="post-text">{{item.content}}</text>
+      </view>
+
+      <!-- 图片列表组件 -->
+      <image-list images="{{item.images}}"></image-list>
+
+      <!-- 底部信息 -->
+      <view class="post-footer">
+        <text class="likes" catch:tap="handleLikeClick" data-id="{{item._id}}">❤️ {{item.likes}}</text>
+        <text class="comments">💬 {{item.comments}}</text>
+      </view>
+    </view>
+  </block>
+  <view class="home1-button" bindtap="goHome">
+    <image src="cloud://yanmo-3g8s1hmd1faa3280.7961-yanmo-3g8s1hmd1faa3280-1342521606/images/home1.png" class="home-icon"></image>
+  </view>
+  <!-- 在文件末尾添加 -->
+  <view class="create-post-button" bindtap="goToCreatePost">
+    <text class="plus-icon">+</text>
+  </view>
+</view>
+

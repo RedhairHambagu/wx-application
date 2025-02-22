@@ -1,0 +1,13 @@
+.image-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10rpx;
+  margin-top: 15rpx;
+}
+
+.image-item {
+  width: 45%;
+  height: 150px;
+  border-radius: 8rpx;
+  object-fit: cover;
+}

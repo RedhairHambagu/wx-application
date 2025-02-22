@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "帖子",
+  "usingComponents": {
+    "image-list": "/components/image-list/image-list"
+  }
+}

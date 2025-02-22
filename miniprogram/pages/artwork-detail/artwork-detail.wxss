@@ -1,0 +1,92 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.cover-container {
+  width: 100%;
+  max-width: 400px;
+  margin-bottom: 15px;
+}
+
+.artwork-cover {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.artwork-title {
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.artwork-description {
+  font-size: 16px;
+  color: #666;
+  text-align: center;
+  margin-top: 5px;
+}
+
+.photo-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.photo-item {
+  width: 100px;
+  height: 100px;
+  border-radius: 8px;
+}
+
+.media-container {
+  width: 100%;
+  max-width: 400px;
+  margin-top: 20px;
+}
+
+.music-player {
+  width: 90%;
+  padding: 15px;
+  background: #f7f7f7;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  min-height: 60px; /* 防止播放器太小 */
+}
+
+.music-controls {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 10px 0;
+}
+
+.control-icon {
+  width: 50px;
+  height: 50px;
+  margin-right: 15px;
+}
+
+.music-slider {
+  flex: 1;
+  height: 10px;
+}
+
+.music-time {
+  font-size: 14px;
+  color: #333;
+  margin-top: 5px;
+}
+
+.video-player {
+  width: 100%;
+  height: 220px;
+  border-radius: 8px;
+}
+

@@ -1,0 +1,218 @@
+.profile-container {
+  min-height: 100vh;
+  background-color: #f5f5f5;
+  padding: 20rpx;
+}
+
+.user-info-card {
+  background: white;
+  border-radius: 16rpx;
+  padding: 30rpx;
+  margin-bottom: 20rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.05);
+}
+
+.user-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 30rpx;
+}
+
+.avatar-container {
+  position: relative;
+  margin-right: 30rpx;
+}
+
+.user-avatar {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 60rpx;
+  border: 2rpx solid #f0f0f0;
+}
+
+.avatar-edit-hint {
+  position: absolute;
+  right: -6rpx;
+  bottom: -6rpx;
+  background: rgb(92, 208, 123);
+  width: 40rpx;
+  height: 40rpx;
+  border-radius: 20rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.edit-icon {
+  color: white;
+  font-size: 24rpx;
+}
+
+.user-details {
+  flex: 1;
+}
+
+.user-name {
+  font-size: 36rpx;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 8rpx;
+  display: block;
+}
+
+.user-email {
+  font-size: 28rpx;
+  color: #666;
+  display: block;
+}
+
+.login-section {
+  text-align: center;
+  padding: 40rpx 0;
+}
+
+.welcome-text {
+  font-size: 36rpx;
+  font-weight: 600;
+  color: #333;
+  display: block;
+  margin-bottom: 16rpx;
+}
+
+.login-hint {
+  font-size: 28rpx;
+  color: #666;
+  display: block;
+  margin-bottom: 30rpx;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 20rpx;
+  margin-top: 30rpx;
+}
+
+.action-btn {
+  flex: 1;
+  height: 80rpx;
+  border-radius: 40rpx;
+  font-size: 28rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+}
+
+.edit-btn {
+  background:rgb(92, 208, 123);
+  color: white;
+}
+
+.logout-btn {
+  background: #f5f5f5;
+  color: #333;
+}
+
+.login-button {
+  background:rgb(92, 208, 123);
+  color: white;
+  border-radius: 40rpx;
+  font-size: 30rpx;
+  padding: 20rpx 60rpx;
+  border: none;
+}
+
+.posts-section {
+  margin-top: 30rpx;
+}
+
+.section-title {
+  font-size: 32rpx;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 20rpx;
+  padding: 0 10rpx;
+}
+
+.post-card {
+  background: white;
+  border-radius: 16rpx;
+  padding: 20rpx;
+  margin-bottom: 20rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.05);
+}
+
+.post-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16rpx;
+}
+
+.post-title {
+  font-size: 30rpx;
+  font-weight: 500;
+  color: #333;
+}
+
+.post-date {
+  font-size: 24rpx;
+  color: #999;
+}
+
+.post-content {
+  font-size: 28rpx;
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 16rpx;
+}
+
+.post-images {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10rpx;
+}
+
+.post-img {
+  width: 100%;
+  height: 200rpx;
+  border-radius: 8rpx;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 60rpx 0;
+  color: #999;
+  font-size: 28rpx;
+}
+
+button::after {
+  border: none;
+}
+
+.create-post-button {
+  position: fixed;
+  right: 30rpx;
+  bottom: 140rpx;
+  width: 100rpx;
+  height: 100rpx;
+  background: #A8B6B1;  /* 莫兰迪绿色 */
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4rpx 16rpx rgba(0, 0, 0, 0.1);
+  z-index: 100;
+}
+
+.plus-icon {
+  color: white;
+  font-size: 60rpx;
+  font-weight: 300;
+}
+
+/* 添加点击效果 */
+.create-post-button:active {
+  transform: scale(0.95);
+  transition: transform 0.2s;
+}

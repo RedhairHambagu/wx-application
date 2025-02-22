@@ -1,0 +1,43 @@
+<view class="profile-container">
+  <!-- 用户信息 -->
+  <view class="user-info">
+    <image class="user-avatar" src="{{userInfo.avatarUrl}}" alt="头像" mode="aspectFill"/>
+    <text class="user-name">{{userInfo.username}}</text>
+    <text class="user-email">{{userInfo.email || '未绑定邮箱'}}</text>
+  </view>
+
+  <!-- 用户帖子展示 -->
+  <view class="user-posts">
+    <block wx:if="{{posts.length > 0}}" wx:for="{{posts}}" wx:key="index">
+      <view class="post-card" bindtap="goToPostDetail" data-id="{{item._id}}">
+        <!-- 帖子头部 -->
+        <view class="post-header">
+          <text class="post-title">{{item.title}}</text>
+          <text class="post-date">{{item.date}}</text>
+        </view>
+
+        <!-- 帖子内容 -->
+        <view class="post-content">
+          <text>{{item.content}}</text>
+        </view>
+
+        <!-- 图片列表 -->
+        <view class="post-images" wx:if="{{item.images.length > 0}}">
+          <block wx:for="{{item.images}}" wx:key="index">
+            <image class="post-img" src="{{item}}" mode="aspectFill"></image>
+          </block>
+        </view>
+      </view>
+    </block>
+
+    <!-- 无帖子时的提示 -->
+    <view wx:if="{{posts.length === 0}}" class="no-posts">
+      <text>该用户暂未发布任何帖子</text>
+    </view>
+  </view>
+</view>
+
+<!-- 返回首页按钮 -->
+<view class="home1-button" bindtap="goHome">
+    <image src="cloud://yanmo-3g8s1hmd1faa3280.7961-yanmo-3g8s1hmd1faa3280-1342521606/images/home1.png" class="home-icon"/>
+</view>

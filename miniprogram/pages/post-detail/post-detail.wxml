@@ -1,0 +1,58 @@
+<view class="post-container">
+  <!-- 1️⃣ 帖子标题 -->
+  <text class="post-title">{{post.title}}</text>
+  <text class="likes" catch:tap="handleLikeClick" data-id="{{item._id}}">❤️ {{post.likes}}</text>
+  <view class="post-header">
+    <image class="avatar" src="{{post.user.avatarUrl}}" mode="aspectFill" catch:tap="goToUserProfile" data-userid="{{item.userId}}"></image>
+    <text class="username">{{post.user.username}}:</text>
+    <text class="post-date">{{post.date}}</text>
+  </view>
+
+  <!-- 2️⃣ 帖子内容 -->
+  <view class="post-content">
+    <text>{{post.content}}</text>
+  </view>
+
+  <!-- 3️⃣ 帖子图片 -->
+  <view class="post-images" wx:if="{{post.images.length > 0}}">
+    <block wx:for="{{post.images}}" wx:key="index">
+      <image class="post-img" src="{{item}}" mode="aspectFill" bindtap="previewImage" data-src="{{item}}" data-index="{{index}}"></image>
+    </block>
+  </view>
+
+  <!-- 4️⃣ 评论列表 -->
+  <view class="comment-section">
+    <text class="comment-title">评论</text>
+    <block wx:for="{{comments}}" wx:key="index">
+      <view class="comment">
+        <!-- 头像 -->
+        <image class="comment-avatar" src="{{item.user.avatarUrl}}" mode="aspectFill" catch:tap="goToUserProfile" data-userid="{{item.userId}}"></image>
+        <view class="comment-content">
+          <!-- 用户名 -->
+          <text class="comment-username">{{item.user.username}}</text>
+          <!-- 评论内容 -->
+          <text class="comment-text">{{item.content}}</text>
+          <text class="comment-date">{{item.date}}</text>
+        </view>
+      </view>
+    </block>
+
+    <!-- 加载更多 -->
+    <view wx:if="{{hasMore}}" class="load-more" bindtap="loadMoreComments">
+      <text>加载更多评论...</text>
+    </view>
+    <view wx:if="{{!hasMore}}" class="no-more">
+      <text>没有更多评论了</text>
+    </view>
+  </view>
+
+  <!-- 5️⃣ 评论输入框 -->
+  <view class="comment-box">
+    <input class="comment-input" placeholder="输入评论..." bindinput="onCommentInput" value="{{commentContent}}" />
+    <button class="comment-btn" bindtap="submitComment">发送</button>
+  </view>
+
+  <view class="home1-button" bindtap="goHome">
+    <image src="cloud://yanmo-3g8s1hmd1faa3280.7961-yanmo-3g8s1hmd1faa3280-1342521606/images/home1.png" class="home-icon"></image>
+  </view>
+</view>

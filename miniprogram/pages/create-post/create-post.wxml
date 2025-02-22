@@ -1,0 +1,37 @@
+<view class="create-post">
+  <view class="input-section">
+    <input class="title-input" 
+           placeholder="输入标题" 
+           maxlength="50"
+           bindinput="onTitleInput" />
+    
+    <textarea class="content-input" 
+              placeholder="分享你的想法..." 
+              maxlength="1000"
+              bindinput="onContentInput" />
+  </view>
+
+  <view class="image-section">
+    <view class="image-list">
+      <block wx:for="{{images}}" wx:key="index">
+        <view class="image-item">
+          <image src="{{item}}" 
+                 mode="aspectFill" 
+                 bindtap="previewImage"
+                 data-src="{{item}}" />
+          <view class="delete-btn" 
+                bindtap="deleteImage" 
+                data-index="{{index}}">×</view>
+        </view>
+      </block>
+      
+      <view class="add-image" 
+            bindtap="chooseImages" 
+            wx:if="{{images.length < 9}}">
+        <text class="add-icon">+</text>
+      </view>
+    </view>
+  </view>
+
+  <button class="submit-btn" bindtap="submitPost">发布</button>
+</view>

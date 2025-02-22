@@ -1,0 +1,61 @@
+<view class="profile-container">
+  <!-- 用户未登录状态 -->
+  <view wx:if="{{!loggedIn}}" class="user-info-card">
+    <image class="user-avatar" src="https://thirdwx.qlogo.cn/mmopen/vi_32/POgEwh4mIHO4nibH0KlMECNjjGxQUq24ZEaGT4poC6icRiccVGKSyXwibcPq4BWmiaIGuG1icwxaQX6grC9VemZoJ8rg/132" mode="aspectFill"/>
+    <view class="login-section">
+      <text class="welcome-text">欢迎来到社区</text>
+      <text class="login-hint">登录后开启更多功能</text>
+      <button class="login-button" bindtap="login">微信一键登录</button>
+    </view>
+  </view>
+
+  <!-- 用户已登录状态 -->
+  <view wx:if="{{loggedIn}}" class="user-info-card">
+    <view class="user-header">
+      <view class="avatar-container" bindtap="chooseAvatar">
+        <image class="user-avatar" src="{{userInfo.avatarUrl}}" mode="aspectFill"/>
+        <view class="avatar-edit-hint">
+          <text class="edit-icon">✏️</text>
+        </view>
+      </view>
+      <view class="user-details">
+        <text class="user-name">{{userInfo.username || '未命名用户'}}</text>
+        <text class="user-email">{{userInfo.email || '未绑定邮箱'}}</text>
+      </view>
+    </view>
+    <view class="action-buttons">
+      <button class="action-btn edit-btn" bindtap="editProfile">编辑资料</button>
+      <button class="action-btn logout-btn" bindtap="logout">退出登录</button>
+    </view>
+  </view>
+
+  <!-- 用户帖子展示 -->
+  <view class="posts-section">
+    <view class="section-title">我的帖子</view>
+    <view class="posts-container">
+      <block wx:if="{{posts.length > 0}}" wx:for="{{posts}}" wx:key="index">
+        <view class="post-card" bindtap="goToPostDetail" data-id="{{item._id}}">
+          <view class="post-header">
+            <text class="post-title">{{item.title}}</text>
+            <text class="post-date">{{item.date}}</text>
+          </view>
+          <text class="post-content">{{item.content}}</text>
+          <view class="post-images" wx:if="{{item.images && item.images.length > 0}}">
+            <image wx:for="{{item.images}}" wx:key="index" class="post-img" src="{{item}}" mode="aspectFill"/>
+          </view>
+        </view>
+      </block>
+      <view wx:if="{{posts.length === 0}}" class="empty-state">
+        <text>还没有发布过帖子哦～</text>
+      </view>
+    </view>
+    <!-- 在文件末尾添加 -->
+    <view class="create-post-button" bindtap="goToCreatePost">
+      <text class="plus-icon">+</text>
+    </view>
+  </view>
+</view>
+
+ <view class="home1-button" bindtap="goHome">
+    <image src="cloud://yanmo-3g8s1hmd1faa3280.7961-yanmo-3g8s1hmd1faa3280-1342521606/images/home1.png" class="home-icon"></image>
+  </view>

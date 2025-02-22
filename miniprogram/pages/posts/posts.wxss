@@ -1,0 +1,108 @@
+.posts-container {
+  padding: 20rpx;
+  background-color: #f5f5f5;
+}
+
+.post-card {
+  background-color: #fff;
+  padding: 20rpx;
+  border-radius: 10rpx;
+  box-shadow: 0 4rpx 10rpx rgba(0, 0, 0, 0.05);
+  margin-bottom: 20rpx;
+}
+
+.post-header {
+  display: flex;
+  align-items: center;
+}
+
+.avatar {
+  width: 60rpx;
+  height: 60rpx;
+  border-radius: 50%;
+  margin-right: 15rpx;
+}
+
+.post-user {
+  display: flex;
+  flex-direction: column;
+}
+
+.username {
+  font-weight: bold;
+  color: #333;
+  font-size: 30rpx;
+}
+
+.post-date {
+  font-size: 24rpx;
+  color: #888;
+}
+
+.post-content {
+  margin-top: 15rpx;
+}
+
+.post-title {
+  font-size: 34rpx;
+  font-weight: bold;
+  color: #222;
+}
+
+.post-text {
+  font-size: 28rpx;
+  color: #555;
+  line-height: 1.5;
+}
+
+.post-images {
+  display: flex;
+  gap: 10rpx;
+  margin-top: 15rpx;
+}
+
+.post-img {
+  width: 80%;
+  height: 200px;
+  border-radius: 8rpx;
+  object-fit: cover;
+}
+
+.post-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 15rpx;
+}
+
+.likes, .comments {
+  font-size: 28rpx;
+  color: #888;
+  cursor: pointer;
+}
+.create-post-button {
+  position: fixed;
+  right: 30rpx;
+  bottom: 140rpx;
+  width: 100rpx;
+  height: 100rpx;
+  background: #A8B6B1;  /* 莫兰迪绿色 */
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4rpx 16rpx rgba(0, 0, 0, 0.1);
+  z-index: 100;
+}
+
+.plus-icon {
+  color: white;
+  font-size: 60rpx;
+  font-weight: 300;
+}
+
+/* 添加点击效果 */
+.create-post-button:active {
+  transform: scale(0.95);
+  transition: transform 0.2s;
+}
