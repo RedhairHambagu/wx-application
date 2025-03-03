@@ -22,15 +22,15 @@
 ---
 - 图片预览（部分）
   1.个人主页页面
-  ![profile]()
+  ![profile](https://github.com/Hyanmo/wx-application/blob/main/images/profile.jpg)
   2.作品集页面
-  ![artwork]()
+  ![artwork](https://github.com/Hyanmo/wx-application/blob/main/images/artwork.jpg)
   3.活动日程页面
-  ![event]()
+  ![event](https://github.com/Hyanmo/wx-application/blob/main/images/event.jpg)
   4.活动详情页面
-  ![event-detail]()
+  ![event-detail](https://github.com/Hyanmo/wx-application/blob/main/images/event-detail.jpg)
   5.作品详情页面
-  ![artwork-detail]()
+  ![artwork-detail](https://github.com/Hyanmo/wx-application/blob/main/images/artwork-detail.jpg)
   6.首页
-  ![index]()
+  ![index](https://github.com/Hyanmo/wx-application/blob/main/images/index.jpg)
   
