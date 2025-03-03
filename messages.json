@@ -1,0 +1,6 @@
+
+{"_id":"message123","roomId":"room123","username":"羊友123","content":"Hello World","timestamp":"2025-02-16T12:00:00Z"}
+{"_id":"message456","roomId":"room123","username":"羊友456","content":"Hi there!","timestamp":"2025-02-16T12:01:00Z"}
+{"_id":"1","roomId":"room123","username":"SystemMessage","content":"系统消息提醒你遵守文明发言规则","timestamp":"2025-02-16T12:01:00Z"}
+{"_id":"2","roomId":"room456","username":"SystemMessage","content":"系统消息提醒你遵守文明发言规则","timestamp":"2025-02-16T12:01:00Z"}
+

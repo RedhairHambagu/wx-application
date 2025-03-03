@@ -1,0 +1,7 @@
+{
+    "_id": "comment123",
+    "postId": "post567",
+    "userId": "user123",
+    "content": "非常棒的演出！",
+    "date": "2025-02-16T10:30:00Z"
+}

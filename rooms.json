@@ -1,0 +1,5 @@
+
+{"_id":"room123","roomName":"聊天房间1","creatorId":"user123","createdAt":"2025-02-16T00:00:00Z","type":"chat","playbackUrl":null}
+{"_id":"room456","roomName":"直播房间","creatorId":"user123","createdAt":"2025-02-16T00:00:00Z","type":"live","playbackUrl":"path_to_video_file"}
+    
+

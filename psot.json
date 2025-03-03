@@ -1,0 +1,13 @@
+{
+    "_id": "post456",
+    "title": "我的第一场演出",
+    "content": "大家好，这是我第一次分享...",
+    "userId": "user456",
+    "date": "2025-02-16T00:00:00Z",
+    "likes": 13,
+    "comments": 1.0,
+    "images": [
+        "/images/9.jpg",
+        "/images/10.jpg"
+    ]
+}
