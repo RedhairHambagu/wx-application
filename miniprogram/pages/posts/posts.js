@@ -1,7 +1,8 @@
 Page({
   data: {
     posts: [],
-    userId: ""
+    userId: "",
+    isLiking: false  // 添加点赞状态标记
   },
 
   onLoad() {
@@ -32,7 +33,13 @@ Page({
 
   // **1️⃣ 点赞功能，不跳转详情页**
   handleLikeClick(e) {
-    const { userId } = this.data;
+    const { userId, isLiking } = this.data;
+    
+    // 防止重复点赞
+    if (isLiking) {
+      return;
+    }
+
     // 检查用户是否登录
     if (!userId) {
       wx.showToast({
@@ -53,23 +60,38 @@ Page({
     const postIndex = posts.findIndex(post => post._id === postId);
     if (postIndex === -1) return;
 
-    const newLikes = (posts[postIndex].likes || 0) + 1;
+    this.setData({ isLiking: true });
 
     wx.cloud.callFunction({
       name: "updateLikes",
-      data: { postId, likes: newLikes },
+      data: { 
+        postId,
+        userId
+      },
       success: res => {
-        console.log("点赞成功", res);
-        const updatedPosts = [...posts];
-        updatedPosts[postIndex].likes = newLikes;
-        this.setData({ posts: updatedPosts });
+        if (res.result.success) {
+          const updatedPosts = [...posts];
+          updatedPosts[postIndex].likes = (posts[postIndex].likes || 0) + 1;
+          this.setData({ 
+            posts: updatedPosts,
+            isLiking: false
+          });
+        } else {
+          wx.showToast({
+            title: res.result.error || "点赞失败",
+            icon: "none"
+          });
+        }
       },
       fail: err => {
         console.error("点赞失败", err);
         wx.showToast({
-          title: "点赞失败",
+          title: "网络错误，请稍后重试",
           icon: "none"
         });
+      },
+      complete: () => {
+        this.setData({ isLiking: false });
       }
     });
   },

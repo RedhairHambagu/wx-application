@@ -5,10 +5,11 @@ Page({
     post: {},
     comments: [],
     commentContent: "",
-    userId: "", // 现在默认为空，未登录状态
+    userId: "",
     limit: 10,
     skip: 0,
     hasMore: true,
+    isLiking: false, // 添加点赞状态标记
   },
 
   onLoad(options) {
@@ -199,38 +200,59 @@ Page({
   },
 
   handleLikeClick() {
-    const { post, userId } = this.data;
+    const { post, userId, isLiking } = this.data;
 
-    // 检查用户是否登录
+    // 防止重复点赞
+    if (isLiking) {
+      return;
+    }
+
     if (!userId) {
       wx.showToast({
         title: "请先登录",
-        icon: "none"
-      });
-
-      // 跳转到登录页面
-      wx.navigateTo({
-        url: "/pages/profile/profile"
+        icon: "none",
+        duration: 2000,
+        success: () => {
+          wx.navigateTo({
+            url: "/pages/profile/profile"
+          });
+        }
       });
       return;
     }
 
-    // 计算新的点赞数
-    const newLikes = (post.likes || 0) + 1;
+    this.setData({ isLiking: true });
 
     wx.cloud.callFunction({
       name: "updateLikes",
-      data: { postId: post._id, likes: newLikes },
+      data: { 
+        postId: post._id,
+        userId: userId,
+        isLike: true
+      },
       success: res => {
-        console.log("点赞成功", res);
-        this.setData({
-          "post.likes": newLikes
-        });
+        if (res.result.success) {
+          this.setData({
+            "post.likes": (this.data.post.likes || 0) + 1,
+            isLiking: false
+          });
+          wx.showToast({
+            title: "点赞成功",
+            icon: "success"
+          });
+        } else {
+          this.setData({ isLiking: false });
+          wx.showToast({
+            title: res.result.error || "点赞失败，请稍后重试",
+            icon: "none"
+          });
+        }
       },
       fail: err => {
         console.error("点赞失败", err);
+        this.setData({ isLiking: false });
         wx.showToast({
-          title: "点赞失败",
+          title: "网络错误，请稍后重试",
           icon: "none"
         });
       }
