@@ -11,9 +11,9 @@
       <view class="nav-item {{currentType === 'photo' ? 'active' : ''}}" 
             bindtap="switchType" data-type="photo">照片</view>
       <view class="nav-item {{currentType === 'music' ? 'active' : ''}}" 
-            bindtap="switchType" data-type="music">音乐</view>
+            bindtap="switchType" data-type="music">专辑</view>
       <view class="nav-item {{currentType === 'video' ? 'active' : ''}}" 
-            bindtap="switchType" data-type="video">视频</view>
+            bindtap="switchType" data-type="video">舞台</view>
     </view>
   </scroll-view>
 

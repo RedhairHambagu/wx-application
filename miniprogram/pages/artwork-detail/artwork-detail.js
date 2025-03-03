@@ -7,9 +7,10 @@ Page({
     currentTime: 0,
     formattedCurrentTime: "0:00",
     formattedDuration: "0:00",
+    recommendedArtworks: []
   },
 
-  onLoad(options) {
+  onLoad: function(options) {
     console.log("Received ID:", options.id);
 
     if (!options.id) {
@@ -25,6 +26,8 @@ Page({
       console.log("Cloud function response:", res);
       if (res.result.success) {
         this.setData({ artwork: res.result.data });
+        // 获取推荐作品
+        this.loadRecommendations(res.result.data.type, options.id);
 
         if (res.result.data.type === "music") {
           this.initAudio(res.result.data.mediaUrl);
@@ -145,6 +148,62 @@ Page({
   goHome() {
     wx.navigateTo({
       url: "/pages/index/index"
+    });
+  },
+  async loadArtworkDetail(id) {
+    try {
+      const db = wx.cloud.database();
+      const result = await db.collection('artworks').doc(id).get();
+      const artwork = result.data;
+      
+      this.setData({ artwork });
+      
+      // 获取同类型推荐作品
+      this.loadRecommendations(artwork.type, id);
+    } catch (err) {
+      console.error('获取作品详情失败：', err);
+    }
+  },
+
+  async loadRecommendations(type, currentId) {
+    try {
+      const res = await wx.cloud.callFunction({
+        name: 'getArtworks',
+        data: {
+          type: type,
+          excludeId: currentId,  // 确保传递当前作品ID
+          limit: 10,
+          filter: {
+            _id: {
+              $ne: currentId  // 明确指定不等于当前ID
+            }
+          }
+        }
+      });
+
+      if (res.result.success) {
+        // 再次确保过滤掉当前作品
+        const filteredArtworks = res.result.data.filter(item => item._id !== currentId);
+        this.setData({
+          recommendedArtworks: filteredArtworks
+        });
+      } else {
+        console.error('获取推荐作品失败：', res.result.error);
+      }
+    } catch (err) {
+      console.error('调用推荐作品云函数失败：', err);
+    }
+  },
+
+  goToArtwork(e) {
+    const id = e.currentTarget.dataset.id;
+    wx.navigateTo({
+      url: `/pages/artwork-detail/artwork-detail?id=${id}`
+    });
+  },
+  goBack() {
+    wx.navigateTo({
+      url: "/pages/artworks/artworks"
     });
   }
 });

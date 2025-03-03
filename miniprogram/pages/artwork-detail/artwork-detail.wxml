@@ -41,8 +41,32 @@
     <video class="video-player" src="{{artwork.mediaUrl}}" controls></video>
   </view>
 
+  <!-- 推荐作品 -->
+  <view class="recommend-section">
+    <view class="recommend-header">
+      <text class="recommend-title">相关推荐</text>
+      <text class="recommend-subtitle">更多精彩作品</text>
+    </view>
+    <scroll-view class="recommend-list" scroll-x enable-flex show-scrollbar="false">
+      <block wx:for="{{recommendedArtworks}}" wx:key="_id">
+        <view class="recommend-item" bindtap="goToArtwork" data-id="{{item._id}}">
+          <image class="recommend-cover" src="{{item.coverUrl}}" mode="aspectFill"></image>
+          <view class="recommend-info">
+            <text class="recommend-item-title">{{item.title}}</text>
+            <text class="recommend-item-type">{{item.type}}</text>
+          </view>
+        </view>
+      </block>
+    </scroll-view>
+  </view>
+
   <!-- 返回首页按钮 -->
   <view class="home1-button" bindtap="goHome">
-  <image src="cloud://yanmo-3g8s1hmd1faa3280.7961-yanmo-3g8s1hmd1faa3280-1342521606/images/home1.png" class="home-icon"></image>
-</view>
+    <image src="cloud://yanmo-3g8s1hmd1faa3280.7961-yanmo-3g8s1hmd1faa3280-1342521606/images/home1.png" class="home-icon"></image>
+  </view>
+  
+  <!-- 返回按钮 -->
+  <view class="back-button" bindtap="goBack">
+    <image src="cloud://yanmo-3g8s1hmd1faa3280.7961-yanmo-3g8s1hmd1faa3280-1342521606/images/back.png" class="home-icon"></image>
+  </view>
 </view>

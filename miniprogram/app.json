@@ -10,8 +10,7 @@
     "pages/event-detail/event-detail",
     "pages/artworks/artworks",
     "pages/create-post/create-post",
-    "pages/rooms/rooms",
-    "pages/room-detail/room-detail"
+    "pages/chat/chat"
   ],
   "window": {
     "navigationBarTitleText": "许杨玉琢",
@@ -20,8 +19,9 @@
     "backgroundColor": "#F4F4F2",
     "backgroundTextStyle": "dark"
   },
-  "globalStyle": {
-    "navigationStyle": "custom"
-  },
-  "usingComponents": {}
+  "lazyCodeLoading": "requiredComponents",
+  "usingComponents": {
+    "agent-ui":"/components/agent-ui/index",
+    "image-list": "/components/image-list/image-list"
+  }
 }

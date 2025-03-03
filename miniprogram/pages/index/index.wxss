@@ -187,7 +187,7 @@ view, text {
 }
 
 /* 导航图标 */
-.nav-icon, .home-icon {
+.nav-icon, .chat-icon {
   width: 30px;
   height: 30px;
   filter: drop-shadow(0 2px 6px rgba(255, 255, 255, 0.3));
@@ -195,12 +195,12 @@ view, text {
 }
 
 .nav-item:hover .nav-icon,
-.nav-item:hover .home-icon {
+.nav-item:hover .chat-icon {
   transform: scale(1.1);
 }
 
 /* 主页按钮稍大 */
-.home-icon {
-  width: 60px;
-  height: 60px;
+.chat-icon {
+  width: 50px;
+  height: 50px;
 }

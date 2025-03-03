@@ -44,8 +44,8 @@
       <image src="cloud://yanmo-3g8s1hmd1faa3280.7961-yanmo-3g8s1hmd1faa3280-1342521606/images/post.png" class="nav-icon"></image>
       <text>羊友圈</text>
     </view>
-    <view class="nav-item center" bindtap="goToRoomPage">
-      <image src="cloud://yanmo-3g8s1hmd1faa3280.7961-yanmo-3g8s1hmd1faa3280-1342521606/images/home.png" class="home-icon"></image>
+    <view class="nav-item center" bindtap="goToChatPage">
+      <image src="cloud://yanmo-3g8s1hmd1faa3280.7961-yanmo-3g8s1hmd1faa3280-1342521606/images/chat.png" class="chat-icon"></image>
     </view>
     <view class="nav-item" bindtap="goToProfilePage">
       <image src="cloud://yanmo-3g8s1hmd1faa3280.7961-yanmo-3g8s1hmd1faa3280-1342521606/images/profile.png" class="nav-icon"></image>

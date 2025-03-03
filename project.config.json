@@ -20,7 +20,8 @@
       "outputPath": ""
     },
     "es6": true,
-    "enhance": true
+    "enhance": true,
+    "minified": true
   },
   "editorSetting": {
     "tabIndent": "insertSpaces",

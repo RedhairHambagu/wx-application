@@ -90,3 +90,131 @@
   border-radius: 8px;
 }
 
+.recommendations {
+  margin-top: 40rpx;
+  padding: 0 30rpx;
+}
+
+.section-title {
+  font-size: 32rpx;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 20rpx;
+}
+
+.recommendation-list {
+  white-space: nowrap;
+  margin: 0 -30rpx;
+  padding: 0 30rpx;
+}
+
+.recommendation-item {
+  display: inline-block;
+  width: 240rpx;
+  margin-right: 20rpx;
+}
+
+.recommendation-cover {
+  width: 240rpx;
+  height: 240rpx;
+  border-radius: 12rpx;
+}
+
+.recommendation-title {
+  font-size: 26rpx;
+  color: #333;
+  margin-top: 12rpx;
+  white-space: normal;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.recommend-section {
+  margin-top: 40rpx;
+  padding: 30rpx;
+  background: #fff;
+  border-radius: 20rpx;
+}
+
+.recommend-header {
+  margin-bottom: 24rpx;
+}
+
+.recommend-title {
+  font-size: 32rpx;
+  font-weight: 600;
+  color: #333;
+}
+
+.recommend-subtitle {
+  margin-left: 16rpx;
+  font-size: 24rpx;
+  color: #999;
+}
+
+.recommend-list {
+  white-space: nowrap;
+  margin: 0 -30rpx;
+  padding: 0 30rpx;
+}
+
+.recommend-item {
+  display: inline-block;
+  width: 280rpx;
+  margin-right: 24rpx;
+  border-radius: 12rpx;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.1);
+}
+
+.recommend-cover {
+  width: 280rpx;
+  height: 280rpx;
+  border-radius: 12rpx 12rpx 0 0;
+}
+
+.recommend-info {
+  padding: 16rpx;
+}
+
+.recommend-item-title {
+  font-size: 26rpx;
+  color: #333;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+
+.recommend-item-type {
+  font-size: 22rpx;
+  color: #666;
+  margin-top: 8rpx;
+  display: block;
+}
+
+.back-button {
+  position: fixed;
+  color: #fff;
+  right: 30rpx;
+  bottom: 140rpx;
+  width: 100rpx;
+  height: 100rpx;
+  background: #A8B6B1;  /* 莫兰迪绿色 */
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4rpx 16rpx rgba(0, 0, 0, 0.1);
+  z-index: 100;
+}
+
+.back-button:active {
+  transform: scale(0.95);
+}
+

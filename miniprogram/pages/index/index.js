@@ -1,17 +1,14 @@
 Page({
   data: {
     artistPoster: 'cloud://yanmo-3g8s1hmd1faa3280.7961-yanmo-3g8s1hmd1faa3280-1342521606/images/1.jpg',
-    eventPreview: '2025年2月20日 演出预告：某某城市演唱会',
+    eventPreview: '',
     showEventModal: false,
-    eventImages: [
-      'cloud://yanmo-3g8s1hmd1faa3280.7961-yanmo-3g8s1hmd1faa3280-1342521606/images/5.jpg',
-      'cloud://yanmo-3g8s1hmd1faa3280.7961-yanmo-3g8s1hmd1faa3280-1342521606/images/6.jpg',
-      'cloud://yanmo-3g8s1hmd1faa3280.7961-yanmo-3g8s1hmd1faa3280-1342521606/images/7.jpg'
-    ],
+    eventImages: [],
     artworks: []
   },
 
   onLoad() {
+    // 获取艺术作品
     wx.cloud.callFunction({
       name: 'getArtworks',
     }).then(res => {
@@ -20,6 +17,21 @@ Page({
         this.setData({ artworks: shuffled.slice(0, 3) });
       }
     }).catch(console.error);
+
+    // 获取活动预告和图片
+    wx.cloud.callFunction({
+      name: 'getNewEvent'
+    }).then(res => {
+      if (res.result.success) {
+        this.setData({
+          eventPreview: res.result.data.eventPreview,
+          eventImages: res.result.data.eventImages,
+          showEventModal: false
+        });
+      }
+    }).catch(err => {
+      console.error('获取活动预告失败：', err);
+    });
   },
 
   goToEventPage() {
@@ -50,7 +62,11 @@ Page({
       urls: this.data.eventImages
     });
   },
-  goToRoomPage() {
-    wx.navigateTo({ url: "/pages/rooms/rooms" });
+  goToArtworkPage() {
+    wx.navigateTo({ url: "/pages/artworks/artworks" });
+  },
+
+  goToChatPage() {
+    wx.navigateTo({ url: "/pages/chat/chat" });
   }
 });
