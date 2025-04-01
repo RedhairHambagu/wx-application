@@ -20,6 +20,11 @@
     "backgroundTextStyle": "dark"
   },
   "lazyCodeLoading": "requiredComponents",
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于查看活动地点"
+    }
+  },
   "usingComponents": {
     "agent-ui":"/components/agent-ui/index",
     "image-list": "/components/image-list/image-list"
