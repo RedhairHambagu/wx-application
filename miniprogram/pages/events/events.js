@@ -21,6 +21,11 @@ Page({
             const [year, month] = event.date.split('-').slice(0, 2)
             const key = `${year}-${month}`
 
+            // 添加事件状态标记
+            const eventDate = new Date(event.fulltime)
+            const now = new Date()
+            event.isPast = eventDate < now
+
             if (!groupedEvents[key]) {
               groupedEvents[key] = { year, month, items: [] }
             }
